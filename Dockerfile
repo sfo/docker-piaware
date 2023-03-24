@@ -8,6 +8,7 @@ RUN apt update && apt install -y \
   build-essential \
   debhelper \
   devscripts \
+  patchelf \
   git \
   libboost-filesystem-dev \
   libboost-program-options-dev \
@@ -16,6 +17,7 @@ RUN apt update && apt install -y \
   libz-dev \
   python3-dev \
   python3-venv \
+  python3-setuptools \
   socat \
   tcl8.6-dev \
   wget
@@ -25,15 +27,15 @@ RUN apt update && apt install -y \
 RUN apt install -y libssl-dev tcl-dev chrpath
 RUN git clone http://github.com/flightaware/tcltls-rebuild.git /tcltls-rebuild
 WORKDIR /tcltls-rebuild
-RUN ./prepare-build.sh buster
-WORKDIR /tcltls-rebuild/package-buster
+RUN ./prepare-build.sh bullseye
+WORKDIR /tcltls-rebuild/package-bullseye
 RUN dpkg-buildpackage -b
 
 RUN git clone https://github.com/flightaware/piaware_builder.git /piaware_builder
 WORKDIR /piaware_builder
 RUN git fetch --all --tags && git checkout tags/v${PIAWARE_VERSION}
 RUN ./sensible-build.sh bullseye
-WORKDIR /piaware_builder/package-buster
+WORKDIR /piaware_builder/package-bullseye
 RUN dpkg-buildpackage -b
 
 
