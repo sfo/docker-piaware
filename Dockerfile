@@ -44,7 +44,10 @@ FROM debian:bullseye
 COPY --from=builder /tcltls-rebuild/tcl-tls_*.deb /tmp
 COPY --from=builder /piaware_builder/piaware_*.deb /tmp
 
-RUN apt install -y /tmp/*.deb && rm /tmp/*.deb
+RUN apt update \
+ && apt install -y /tmp/*.deb \
+ && rm -rf /var/lib/apt/lists/* \
+ && rm /tmp/*.deb
 
 WORKDIR /
 COPY start.sh /
