@@ -14,8 +14,8 @@ if [ -z "${BEAST_PORT_30005_TCP_ADDR}" ]; then
   exit 1
 fi
 
-/usr/bin/piaware-config flightaware-user "${FLIGHTAWARE_USER:?}"
-/usr/bin/piaware-config flightaware-password "${FLIGHTAWARE_PASS:?}"
+#/usr/bin/piaware-config flightaware-user "${FLIGHTAWARE_USER:?}"
+#/usr/bin/piaware-config flightaware-password "${FLIGHTAWARE_PASS:?}"
 /usr/bin/piaware-config allow-mlat "${MLAT:=no}"
 
 if [ -n "${FEEDER_ID}" ]; then

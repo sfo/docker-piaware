@@ -45,7 +45,9 @@ COPY --from=builder /tcltls-rebuild/tcl-tls_*.deb /tmp
 COPY --from=builder /piaware_builder/piaware_*.deb /tmp
 
 RUN apt update \
- && apt install -y /tmp/*.deb \
+ && apt install -y \
+        /tmp/*.deb \
+        socat \
  && rm -rf /var/lib/apt/lists/* \
  && rm /tmp/*.deb
 
