@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
   python3-dev \
   python3-venv \
   python3-setuptools \
+  python3-wheel \
+  python3-build \
+  python3-pip \
   socat \
   tcl8.6-dev \
   wget
