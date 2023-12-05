@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y \
 # Workaround from version 3.8.1. Should be removed in the future. 
 # Still open with 8.2. Affects debian package tcl-tls at least up to 1.7.22.
 RUN apt-get install -y libssl-dev tcl-dev chrpath
-RUN git clone http://github.com/flightaware/tcltls-rebuild.git /tcltls-rebuild
+RUN git clone http://github.com/sfo/tcltls-rebuild.git /tcltls-rebuild
 WORKDIR /tcltls-rebuild
 RUN ./prepare-build.sh bookworm
 WORKDIR /tcltls-rebuild/package-bookworm
