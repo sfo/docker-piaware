@@ -1,6 +1,6 @@
 FROM debian:bookworm AS builder
 
-ENV PIAWARE_VERSION 9.0
+ENV PIAWARE_VERSION 9.0.1
 ENV MLAT yes
 
 RUN apt-get update && apt-get install -y \
